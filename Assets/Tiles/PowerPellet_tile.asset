@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PowerPellet_tile
   m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.RuleTile
   m_DefaultSprite: {fileID: 0}
-  m_DefaultGameObject: {fileID: 0}
-  m_DefaultColliderType: 1
+  m_DefaultGameObject: {fileID: 5902612908350224670, guid: 53fe55bbd87f988409ce94a882e2e7c5, type: 3}
+  m_DefaultColliderType: 0
   m_TilingRules: []
