@@ -1,3 +1,3 @@
 # Pacman clone
 
-![Packman Clone](assets/packman-clone-banner.png)
+![Packman Clone](Assets/packman-clone-banner.png)
