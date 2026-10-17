@@ -68,8 +68,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_Clyde
       objectReference: {fileID: 0}
+    - target: {fileID: 9095187627562477534, guid: 37695405b147e9a47bbfcef2448ff807, type: 3}
+      propertyPath: initialBehaviour
+      value: 
+      objectReference: {fileID: 4900469696761230848}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37695405b147e9a47bbfcef2448ff807, type: 3}
+--- !u!114 &4900469696761230848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1017136213498593195, guid: 37695405b147e9a47bbfcef2448ff807, type: 3}
+  m_PrefabInstance: {fileID: 5340249665730251179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe06a6190eb7c342a9c98f04fb62913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostHome

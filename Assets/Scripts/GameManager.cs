@@ -59,10 +59,10 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < ghosts.Length; i++)
         {
-            this.ghosts[i].gameObject.SetActive(true);
+            this.ghosts[i].ResetState();
         }
 
-        this.pacman.gameObject.SetActive(true);
+        this.pacman.ResetState();
     }
 
     private void SetScore(int points)
@@ -84,6 +84,9 @@ public class GameManager : MonoBehaviour
 
     public void PacmanEaten()
     {
+        if (!this.pacman.gameObject.activeSelf)
+            return;
+
         this.pacman.gameObject.SetActive(false);
         SetLives(this.lives - 1);
         if (this.lives > 0)
@@ -112,7 +115,7 @@ public class GameManager : MonoBehaviour
     public void PowerPelletEaten(PowerPellet powerPellet)
     {
         PelletEaten(powerPellet);
-        
+
         CancelInvoke();
 
         Invoke(nameof(ResetGhostMultiplier), powerPellet.duration);
