@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
     public Ghost[] ghosts;
     public Pacman pacman;
     public Transform pellets;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText;
+    public GameObject gameOverPanel;
     public int ghostMultiplier { get; private set; }
     public int score { get; private set; }
     public int lives { get; private set; } = 3;
@@ -17,18 +20,19 @@ public class GameManager : MonoBehaviour
         lives = 3;
 
         NewGame();
-    }
+    }   
 
     private void Update()
     {
-        if (this.lives <= 0 && Input.anyKeyDown)
+        if (this.lives <= 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
         {
             NewGame();
         }
     }
 
-    private void NewGame()
+    public void NewGame()
     {
+        gameOverPanel.SetActive(false);
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -41,6 +45,7 @@ public class GameManager : MonoBehaviour
             ghost.gameObject.SetActive(false);
         }
         this.pacman.gameObject.SetActive(false);
+        gameOverPanel.SetActive(true);
     }
 
     private void NewRound()
@@ -68,11 +73,13 @@ public class GameManager : MonoBehaviour
     private void SetScore(int points)
     {
         this.score = points;
+        scoreText.text = "SCORE : " + score.ToString().PadLeft(2, '0');
     }
 
     private void SetLives(int lives)
     {
         this.lives = lives;
+        livesText.text = "LIVES : " + lives.ToString().PadLeft(2, '0');
     }
 
     public void GhostEaten(Ghost ghost)
