@@ -23,13 +23,12 @@ public class Movement : MonoBehaviour
         ResetState();
     }
 
-    [System.Obsolete]
     public void ResetState(){
         this.speedMultiplier = 1.0f;
         this.direction = this.initialDirection;
         this.nextDirection = Vector2.zero;
         this.transform.position = this.startingPosition;
-        this.rigidbody.isKinematic = false;
+        this.rigidbody.bodyType = RigidbodyType2D.Dynamic;
         this.enabled = true;
     }
 

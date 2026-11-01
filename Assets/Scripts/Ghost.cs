@@ -28,16 +28,12 @@ public class Ghost : MonoBehaviour
     public void ResetState()
     {
         this.gameObject.SetActive(true);
+        this.home.ResetState();
         this.movement.ResetState();
 
         this.frightened.Disable();
         this.chase.Disable();
         this.scatter.Enable();
-
-        if(this.home != this.initialBehaviour)
-        {
-            this.home.Disable();
-        }
 
         if(this.initialBehaviour != null)
         {

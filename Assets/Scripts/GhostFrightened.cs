@@ -14,6 +14,9 @@ public class GhostFrightened : GhostBehaviour
     {
         base.Enable(duration);
 
+        // OnEnable doesn't run again when already frightened, so clear it here too
+        this.eaten = false;
+
         this.body.enabled = false;
         this.eyes.enabled = false;
         this.blue.enabled = true;

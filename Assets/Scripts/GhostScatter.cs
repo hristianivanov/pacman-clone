@@ -13,6 +13,11 @@ public class GhostScatter : GhostBehaviour
 
         if (node != null && this.enabled && !this.ghost.frightened.enabled)
         {
+            if (node.availableDirections.Count == 0)
+            {
+                return;
+            }
+
             int index = Random.Range(0, node.availableDirections.Count);
 
             if (

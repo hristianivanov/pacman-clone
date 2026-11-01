@@ -6,6 +6,18 @@ public class GhostHome : GhostBehaviour
     public Transform inside;
     public Transform outside;
 
+    private bool skipExitTransition;
+
+    public void ResetState()
+    {
+        StopAllCoroutines();
+
+        // Disable without playing the exit animation, the ghost is being teleported to its start
+        this.skipExitTransition = true;
+        Disable();
+        this.skipExitTransition = false;
+    }
+
     private void OnEnable()
     {
         StopAllCoroutines();
@@ -13,7 +25,7 @@ public class GhostHome : GhostBehaviour
 
     private void OnDisable()
     {
-        if (this.gameObject.activeInHierarchy)
+        if (!this.skipExitTransition && this.gameObject.activeInHierarchy)
         {
             StartCoroutine(ExitTransition());
         }
@@ -30,7 +42,7 @@ public class GhostHome : GhostBehaviour
     private IEnumerator ExitTransition()
     {
         this.ghost.movement.SetDirection(Vector2.up, true);
-        this.ghost.movement.rigidbody.isKinematic = true;
+        this.ghost.movement.rigidbody.bodyType = RigidbodyType2D.Kinematic;
         this.ghost.movement.enabled = false;
 
         Vector3 position = this.transform.position;
@@ -67,7 +79,7 @@ public class GhostHome : GhostBehaviour
             true
         );
 
-        this.ghost.movement.rigidbody.isKinematic = false;
+        this.ghost.movement.rigidbody.bodyType = RigidbodyType2D.Dynamic;
         this.ghost.movement.enabled = true;
     }
 }
