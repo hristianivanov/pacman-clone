@@ -14,9 +14,14 @@ public class AnimatedSprite : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         InvokeRepeating(nameof(Advance), animationTime, animationTime);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke(nameof(Advance));
     }
 
     private void Advance()

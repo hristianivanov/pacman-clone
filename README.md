@@ -22,6 +22,8 @@ A 2D Pac-Man clone built with **Unity 6** and **C#**. This is my first Unity gam
 | Key | Action |
 | --- | ------ |
 | Arrow keys / WASD | Move Pac-Man |
+| Enter / Space | Start or restart the game |
+| Esc / P | Pause and resume |
 
 <!-- TODO: adjust to match your actual input setup -->
 
